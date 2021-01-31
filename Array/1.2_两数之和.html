@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //问题描述：
+    // 给定一个整数数组 nums 和一个目标值 target ，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+    // 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
+
+    //遍历数组，用target减数组元素，得到一个值，判断该值是否在数组中
+        const arr=[2,7,11,15];
+        // const arr=[0,2,7,11,15,18];//只能找到一种答案
+        const target=18;
+        function findSumFromArray( arr=[], targrt){
+            let flag=false;
+            let indexl
+            for(let i=0;i<arr.length;i++){
+                let minus=target-arr[i]
+                if(arr.indexOf(minus)!==-1){
+                    flag=true;
+                    indexl=i;
+                    indexr=arr.indexOf(minus)
+                    break
+                }
+            }
+            if(flag==true){
+                console.log('['+indexl+','+indexr+']');
+            }
+            else{
+                console.log("数组中不存在满足条件的两数");
+            }
+        }
+        findSumFromArray(arr,target)
+    </script>
+</body>
+</html>
