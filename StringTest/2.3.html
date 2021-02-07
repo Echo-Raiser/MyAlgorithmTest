@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 问题描述：给定两个字符串形式的非负整数 num1 和 num2 ，计算它们的和。
+// 例如："111" + ”2222“ = ”2333“
+// 注意：
+// num1 和 num2 的长度都小于 5100
+// num1 和 num2 都只包含数字 0-9
+// num1 和 num2 都不包含任何前导零
+// 你不能使用任何內建 BigInteger 库， 也不能直接将输入的字符串转换为整数形式
+        
+//类似数学上的低位到高位相加，考虑进位
+        const num1='111';
+        const num2='2222';
+        function addStrings(num1,num2){
+            var len=(num1.length>num2.length)?num1.length:num2.length;
+            var res=[];
+            for(let i=0;i<len;i++){
+            //   console.log(typeof(num1[i]));是String
+              var item1=Number(num1[i]) || 0
+              var item2=Number(num2[i]) || 0
+              var num=res[i] || 0
+              var sum=item1+item2+num
+              res[i]=sum%10;
+              var cout=Math.floor(sum/10)
+              if(cout>0){
+                  res.unshift(cout)
+              }
+            }
+            return res.reverse().join('');
+        }
+        console.log(addStrings(num1,num2));     
+    </script>
+</body>
+</html>

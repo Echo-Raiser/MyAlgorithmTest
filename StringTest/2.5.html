@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//给定一个字符串，逐个翻转字符串中的每个单词。
+// 无空格字符构成一个单词。
+// 输入字符串可以在前面或者后面包含多余的空格，但是反转后的字符不能包括。
+// 如果两个单词间有多余的空格，将反转后单词间的空格减少到只含一个。
+        // const str='the sky is blue';
+        const str='  a good   example';
+        function reverseAll(str){
+            str=str.trim();
+            let arr=str.split(' ')
+            console.log(arr);
+            let res=[]
+            arr.forEach(element => {
+                if(element.length!==0){
+                    res.unshift(element)
+                }
+            });
+            return res.join(' ')
+        }
+        console.log(reverseAll(str));
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 给定一个字符串，找出其中不含有重复字符的 最长子串 的长度。
+        const str='abcabcbb'
+        // const str='bbbbbbbb'
+        function findLongestSubstring(s){
+            var res=[];
+            var len=0;
+            for(let i=0;i<s.length;i++){
+                if(res.indexOf(s[i])!==-1){
+                    res.splice(0,res.indexOf(s[i])+1)
+                }
+                res.push(s[i]);
+                len=len>res.length?len:res.length;
+                // console.log(res);
+            }
+            return len;
+        }
+        console.log(findLongestSubstring(str));
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str="123454321";
+        // function isHuiWen(input){
+        //     if (typeof input !== 'string') return false;
+        //     return input.split('').reverse().join('') === input;
+        // }
+
+
+        function isHuiWen(str){
+            var strArr=str.split('');
+            var reversedStr=strArr.reverse().join('');
+            console.log(reversedStr);
+            if(reversedStr!==str){
+                return false
+            }
+            return true
+        }
+
+        // function isHuiWen(str){
+        //     let len=str.length;
+        //     let halflen=len;
+        //     for(let i=0;i<halflen;i++){
+        //         if(str[i]!==str[len-i-1]){
+        //             return false
+        //         }
+        //     }
+        //     return true
+        // }
+
+        if(isHuiWen(str)===true){
+            console.log(str+"是回文数");
+        }
+        else{
+            console.log(str+"不是回文数");
+        }
+    </script>
+</body>
+</html>

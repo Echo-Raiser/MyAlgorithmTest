@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// 查找字符串数组中的最长公共前缀。
+// 如果不存在公共前缀，返回空字符串 ""
+        const arr=['abc','abcacd','abnb'];
+        // 考虑空数组
+        // const arr=[];
+        // 考虑只有一个元素的数组
+        // const arr=['a'];
+        function filterString(str1, str2) {
+            var result = '';
+            for( var i = 0; i < str1.length; i++ ){
+                if( str1[i] === str2[i] ){
+                    result += str1[i];
+                    continue;
+                }
+                return result;
+            }
+            return result;  // 当两个比较的字符串一模一样的时候就会走到这里
+        }
+        // function filterString(str1, str2) {
+        //     var result = '';
+        //     var arr1 = str1.trim().split(''),
+        //         arr2 = str2.trim().split('');
+        //     arr1.some(function (item, index) {
+        //         if( item === arr2[index] ){
+        //             result += item;
+        //             return false;
+        //         }
+        //         return true;
+        //     });
+        //     return result;
+        // }
+
+        // function overlap(arr) {
+        //     var result = '';
+        //     var firstTime = true;
+        //     arr.some(function (item) {
+        //         if( typeof item !== 'string') return false;
+        //         if( firstTime ) {  // 考虑了数组第一个元素可能不是字符串的情况
+        //             result = item;
+        //             firstTime = false;
+        //             return false;   // 第一次填充字符串的话后面的代码就不用执行了
+        //         }
+        //         // 筛选出当前遍历字符串与 result 的交集
+        //         result = filterString(result, item);
+        //         // 每次遍历后都判断当前重叠部分是否为空，若为空直接返回
+        //         if( !result ) return true;
+        //     })
+        //     return result;
+        // }
+
+        //如果限定数组内容已经全为字符串
+        function overlap(arr) {
+            var result = '';
+            if(arr.length===0){
+                return 0;
+            }
+            if(arr.length===1){
+                return arr[0];
+            }
+            else{
+                for(let i=1;i<arr.length;i++){
+                result=arr[0];
+                result = filterString(result, arr[i]);
+                // console.log(result);
+                // 每次遍历后都判断当前重叠部分是否为空，若为空直接返回
+                if( !result ) break
+                }
+                return result;
+            }
+        }
+
+        console.log(overlap(arr));
+
+    </script>
+</body>
+</html>
